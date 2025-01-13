@@ -1,0 +1,24 @@
+pipeline
+{
+    agent{label "jenkins-agent"}
+    stages
+    {
+        stage('Cloning Code')
+        {
+            steps
+            {
+                echo 'Code clonning'
+                git url: "https://github.com/Devansh-Chauhan-GitHub/react_django_demo_app.git",branch: "main"
+                echo 'Code cloned'
+            }
+        }
+        stage('Deployed')
+        {
+            steps
+            {
+                echo 'Deploying Code'
+                sh "docker-compose up --build -d"
+            }
+        }
+    }
+}
