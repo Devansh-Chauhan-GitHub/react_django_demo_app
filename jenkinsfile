@@ -14,7 +14,10 @@ pipeline
         }
         stage('Dockerfile')
         {
+            steps
+            {
             sh "docker-compose down"
+            }
         }
         stage('Deployed')
         {
