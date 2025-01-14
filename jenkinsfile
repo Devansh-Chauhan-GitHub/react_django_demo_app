@@ -12,6 +12,10 @@ pipeline
                 echo 'Code cloned'
             }
         }
+        stage('Dockerfile')
+        {
+            sh "docker-compose down"
+        }
         stage('Deployed')
         {
             steps
